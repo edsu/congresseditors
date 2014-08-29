@@ -21,12 +21,14 @@ of the same article by the same user.
 
 ## Run
 
-1. `sudo apt-get install node`
-1. `git clone https://github.com/edsu/congresseditors`
-1. `npm install`
-1. `cp config.json.template config.json`
-1. edit config.json with twitter credentials
-1. `node congresseditors.js`
+    sudo apt-get install node
+    git clone https://github.com/edsu/congresseditors
+    npm install
+    cp config.json.template config.json
+
+Edit config.json to add your twitter credentials, and then:
+
+    node congresseditors.js
 
 # Develop
 
