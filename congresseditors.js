@@ -27,7 +27,8 @@
         };
       })(this));
       wikipedia = new wikichanges.WikiChanges({
-        ircNickname: this.config.nick
+        ircNickname: this.config.nick,
+        wikipedias: ["#en.wikipedia"]
       });
       return wikipedia.listen((function(_this) {
         return function(edit) {
