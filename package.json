@@ -1,0 +1,15 @@
+{
+  "name": "congresseditors",
+  "description": "Tweet edits to Wikipedia related to the US Congress",
+  "homepage": "http://github.com/edsu/congresseditors",
+  "license": "CC0-1.0",
+  "version": "0.0.1",
+  "dependencies": {
+    "twit": "latest",
+    "wikichanges": ">=0.2.4",
+    "coffee-script": "latest",
+    "minimist": "latest",
+    "request": "latest",
+    "cheerio": "latest"
+  }
+}
