@@ -1,8 +1,9 @@
 # congresseditors
 
-A bot that watches for edits to Wikipedia articles related to the US Congress
-and tweets them at [@congresseditors](http://twitter.com/congresseditors). The
-@congresseditors Twitter account was originally run by an
+congresseditors is a bot that watches for edits to Wikipedia articles related 
+to the US Congress and tweets them at 
+[@congresseditors](http://twitter.com/congresseditors). 
+The @congresseditors Twitter account was originally run by an
 [anon](http://github.com/edsu/anon), but it started getting enough custom
 functionality that it made sense to split it off into its own program.
 
@@ -14,7 +15,9 @@ examining these Wikipedia articles:
 * [List of bills in the 113th United States Congress](https://en.wikipedia.org/wiki/List_of_bills_in_the_113th_United_States_Congress)
 
 Of course it's unlikely that the current members change that often, but bills 
-are more volatile.
+are more volatile. congressedits ignores changes if less than 10 characters
+in the article were changed (typos, etc). It also ignores repeated edits from
+of the same article by the same user.
 
 ## Run
 
