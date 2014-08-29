@@ -14,19 +14,33 @@ examining these Wikipedia articles:
 * [List of current United States Senators](https://en.wikipedia.org/wiki/List_of_current_United_States_Senators)
 * [List of bills in the 113th United States Congress](https://en.wikipedia.org/wiki/List_of_bills_in_the_113th_United_States_Congress)
 
-Of course it's unlikely that the current members change that often, but bills 
+Of course it''s unlikely that the current members change that often, but bills 
 are more volatile. congressedits ignores changes if less than 10 characters
 in the article were changed (typos, etc). It also ignores repeated edits from
 of the same article by the same user.
 
 ## Run
 
-1. sudo apt-get install node coffeescript
+1. sudo apt-get install node
 1. git clone https://github.com/edsu/congresseditors
 1. npm install
 1. cp config.json.template config.json
 1. edit config.json with twitter credentials
-1. coffee congresseditors
+1. node congresseditors.js
+
+# Develop
+
+You will need to install coffeescript to be able to work on the code. 
+
+    sudo apt-get install coffeescript
+
+As you are working on your changes you can run with:
+
+    coffee congressedits.coffee
+
+Just make sure when you are done to compile it to JavaScript.
+
+    coffee -c congresseditors.coffee
 
 ## License:
 
