@@ -23,6 +23,7 @@ of the same article by the same user.
 
     sudo apt-get install node
     git clone https://github.com/edsu/congresseditors
+    cd congresseditors
     npm install
     cp config.json.template config.json
 
