@@ -15,7 +15,9 @@ class CongressEditors
   run: ->
     this._update @config.refresh, =>
       console.log "monitoring #{Object.keys(@pages).length} pages"
-    wikipedia = new wikichanges.WikiChanges ircNickname: @config.nick
+    wikipedia = new wikichanges.WikiChanges
+      ircNickname: @config.nick
+      wikipedias: ["#en.wikipedia"]
     wikipedia.listen (edit) =>
       this.inspect(edit)
 
