@@ -21,11 +21,7 @@
 
     CongressEditors.prototype.run = function() {
       var wikipedia;
-      this._update(this.config.refresh, (function(_this) {
-        return function() {
-          return console.log("monitoring " + (Object.keys(_this.pages).length) + " pages");
-        };
-      })(this));
+      this._update(this.config.refresh);
       wikipedia = new wikichanges.WikiChanges({
         ircNickname: this.config.nick,
         wikipedias: ["#en.wikipedia"]
@@ -38,11 +34,14 @@
     };
 
     CongressEditors.prototype.inspect = function(edit) {
-      var status, twitter;
-      if (this.pages[edit.page] && Math.abs(edit.delta) > 10 && !this._isRepeat(edit)) {
-        twitter = new Twit(this.config);
-        status = this.getStatus(edit);
+      var repeat, significant, status, twitter, watched;
+      watched = this.pages[edit.page];
+      significant = Math.abs(edit.delta) > 10;
+      repeat = this._isRepeat(edit);
+      if (watched && significant && !repeat) {
+        status = this._getStatus(edit);
         console.log(status);
+        twitter = new Twit(this.config);
         return twitter.post('statuses/update', {
           status: status
         }, function(err) {

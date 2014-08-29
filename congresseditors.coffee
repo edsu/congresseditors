@@ -13,8 +13,7 @@ class CongressEditors
     @pages = {}
 
   run: ->
-    this._update @config.refresh, =>
-      console.log "monitoring #{Object.keys(@pages).length} pages"
+    this._update @config.refresh
     wikipedia = new wikichanges.WikiChanges
       ircNickname: @config.nick
       wikipedias: ["#en.wikipedia"]
@@ -22,10 +21,13 @@ class CongressEditors
       this.inspect(edit)
 
   inspect: (edit) ->
-    if @pages[edit.page] and Math.abs(edit.delta) > 10 and not this._isRepeat edit
-      twitter = new Twit @config
-      status = this.getStatus edit
+    watched = @pages[edit.page]
+    significant = Math.abs(edit.delta) > 10
+    repeat = this._isRepeat edit
+    if watched and significant and not repeat
+      status = this._getStatus edit
       console.log status
+      twitter = new Twit @config
       twitter.post 'statuses/update', status: status, (err) ->
         console.log err if err
 
