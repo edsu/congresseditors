@@ -21,12 +21,12 @@ of the same article by the same user.
 
 ## Run
 
-1. sudo apt-get install node
-1. git clone https://github.com/edsu/congresseditors
-1. npm install
-1. cp config.json.template config.json
+1. `sudo apt-get install node`
+1. `git clone https://github.com/edsu/congresseditors`
+1. `npm install`
+1. `cp config.json.template config.json`
 1. edit config.json with twitter credentials
-1. node congresseditors.js
+1. `node congresseditors.js`
 
 # Develop
 
