@@ -3,7 +3,7 @@
 congresseditors is a bot that watches for edits to Wikipedia articles related 
 to the US Congress and tweets them at 
 [@congresseditors](http://twitter.com/congresseditors). 
-The @congresseditors Twitter account was originally run by an
+The @congresseditors Twitter account was originally run by an instance of 
 [anon](http://github.com/edsu/anon), but it started getting enough custom
 functionality that it made sense to split it off into its own program.
 
