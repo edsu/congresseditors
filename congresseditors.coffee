@@ -66,10 +66,14 @@ class CongressEditors
           @pages = newPages
           console.log "monitoring #{ Object.keys(@pages).length } pages"
 
-          # schedule next update
-          doUpdate = =>
-            this._update(refresh)
-          setTimeout doUpdate, refresh * 1000
+          # if refresh is a callback call it
+          if refresh instanceof Function
+            refresh()
+          # otherwise it's the number of seconds to sleep till next update
+          else
+            doUpdate = =>
+              this._update(refresh)
+            setTimeout doUpdate, refresh * 1000
 
   _repeat: (edit) ->
     k = "#{edit.wikipedia}"
@@ -120,13 +124,20 @@ loadJson = (path) ->
   require path
 
 argv = minimist process.argv.slice(2), default:
-  verbose: false
   config: './config.json'
+  list: false
 
 main = ->
   config = loadJson argv.config
   c = new CongressEditors config
-  c.run()
+  # if list was selected just write out what pages we would monitor
+  if argv.list
+    c._update ->
+      for page in Object.keys c.pages
+        console.log page
+  # otherwise run!
+  else
+    c.run()
   
 if require.main == module
   main()
