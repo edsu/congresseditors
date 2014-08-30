@@ -34,11 +34,16 @@
     };
 
     CongressEditors.prototype.inspect = function(edit) {
-      var repeat, significant, status, twitter, watched;
-      watched = this.pages[edit.page];
-      significant = Math.abs(edit.delta) > 10;
-      repeat = this._isRepeat(edit);
-      if (watched && significant && !repeat) {
+      var status, twitter;
+      if (!this.pages[edit.page]) {
+
+      } else if (Math.abs(edit.delta) <= 10) {
+
+      } else if (edit.robot) {
+
+      } else if (this._repeat(edit)) {
+
+      } else {
         status = this._getStatus(edit);
         console.log(status);
         twitter = new Twit(this.config);
@@ -99,7 +104,7 @@
       })(this));
     };
 
-    CongressEditors.prototype._isRepeat = function(edit) {
+    CongressEditors.prototype._repeat = function(edit) {
       var k, r, v;
       k = "" + edit.wikipedia;
       v = "" + edit.page + ":" + edit.user;

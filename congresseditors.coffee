@@ -21,10 +21,20 @@ class CongressEditors
       this.inspect(edit)
 
   inspect: (edit) ->
-    watched = @pages[edit.page]
-    significant = Math.abs(edit.delta) > 10
-    repeat = this._isRepeat edit
-    if watched and significant and not repeat
+    # is it a page we are watching?
+    if not @pages[edit.page]
+      return
+    # were more than 10 characters changed?
+    else if Math.abs(edit.delta) <= 10
+      return
+    # is it a bot?
+    else if edit.robot
+      return
+    # did we just announce an edit of the same article by the same user?
+    else if this._repeat edit
+      return
+    # ok lets announce it!
+    else
       status = this._getStatus edit
       console.log status
       twitter = new Twit @config
@@ -61,7 +71,7 @@ class CongressEditors
             this._update(refresh)
           setTimeout doUpdate, refresh * 1000
 
-  _isRepeat: (edit) ->
+  _repeat: (edit) ->
     k = "#{edit.wikipedia}"
     v = "#{edit.page}:#{edit.user}"
     r = @lastChange[k] == v
