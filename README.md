@@ -12,8 +12,7 @@ examining these Wikipedia articles:
 
 * [List of current members of the United States House of Representatives](https://en.wikipedia.org/wiki/List_of_current_members_of_the_United_States_House_of_Representatives_by_age_and_generation)
 * [List of current United States Senators](https://en.wikipedia.org/wiki/List_of_current_United_States_Senators)
-* [List of bills in the 113th United States
-* Congress](https://en.wikipedia.org/wiki/List_of_bills_in_the_114th_United_States_Congress) - you can configure the source for the bills for the current congress in your `config.json`
+* [List of bills in the 113th United States Congress](https://en.wikipedia.org/wiki/List_of_bills_in_the_114th_United_States_Congress) - you can configure the source for the bills for the current congress in your `config.json`
 
 Of course it''s unlikely that the current members change that often, but bills 
 are more volatile. congressedits ignores changes if less than 10 characters
