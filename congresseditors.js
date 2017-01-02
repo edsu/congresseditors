@@ -126,7 +126,7 @@
     CongressEditors.prototype._getHouse = function(callback) {
       var url;
 
-      url = 'https://en.wikipedia.org/wiki/List_of_current_members_of_the_United_States_House_of_Representatives_by_age_and_generation';
+      url = 'https://en.wikipedia.org/wiki/Current_members_of_the_United_States_House_of_Representatives';
       return this._getNames(url, callback);
     };
 
@@ -154,7 +154,9 @@
               p.push($(a).attr('title'));
             }
           }
-          return bills.push(p[0]);
+          if (p[0]) {
+            return bills.push(p[0]);
+          }
         });
         return callback(bills);
       });
