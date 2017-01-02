@@ -83,7 +83,7 @@ class CongressEditors
     return r
 
   _getHouse: (callback) ->
-    url = 'https://en.wikipedia.org/wiki/List_of_current_members_of_the_United_States_House_of_Representatives_by_age_and_generation'
+    url = 'https://en.wikipedia.org/wiki/Current_members_of_the_United_States_House_of_Representatives'
     this._getNames url, callback
 
   _getSenate: (callback) ->
@@ -100,7 +100,8 @@ class CongressEditors
           if $(a).attr('href').match(/^\/wiki\/(.+)$/)
             p.push $(a).attr 'title'
         # assume first link to wikipedia in table row is for the bill
-        bills.push p[0]
+        if p[0]
+          bills.push p[0]
       callback bills
 
   _getNames: (url, callback) ->
