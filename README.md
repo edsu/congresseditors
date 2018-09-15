@@ -45,6 +45,17 @@ Just make sure when you are done to compile it to JavaScript.
 
     coffee -c congresseditors.coffee
 
+# Kubernetes
+
+The congresseditors bot runs in the Wikimedia Wikitech environment in their
+Kubernetes cluster.  Instructions on how to get access can be found on their
+[wiki](https://wikitech.wikimedia.org/wiki/Main_Page). 
+
+The `bin` and `etc` directories contain config files and a script to start and
+stop the Kubernetes jobs.
+
+
+
 ## License:
 
 * [CC0](LICENSE) public domain dedication
