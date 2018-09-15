@@ -31,7 +31,7 @@ Edit config.json to add your twitter credentials, and then:
 
     node congresseditors.js
 
-# Develop
+## Develop
 
 You will need to install coffeescript to be able to work on the code. 
 
@@ -45,7 +45,7 @@ Just make sure when you are done to compile it to JavaScript.
 
     coffee -c congresseditors.coffee
 
-# Kubernetes
+## Kubernetes
 
 The congresseditors bot runs in the Wikimedia Wikitech environment in their
 Kubernetes cluster.  Instructions on how to get access can be found on their
@@ -53,8 +53,6 @@ Kubernetes cluster.  Instructions on how to get access can be found on their
 
 The `bin` and `etc` directories contain config files and a script to start and
 stop the Kubernetes jobs.
-
-
 
 ## License:
 
