@@ -1,0 +1,9 @@
+{
+  "nick": "congresseditors",
+  "consumer_key": "CHANGEME",
+  "consumer_secret": "CHANGEME",
+  "access_token": "CHANGEME",
+  "access_token_secret": "CHANGEME",
+  "congress": "https://en.wikipedia.org/wiki/List_of_bills_in_the_115th_United_States_Congress",
+  "refresh": 3600 
+}
